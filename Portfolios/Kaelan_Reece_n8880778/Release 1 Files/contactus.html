@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <!--Title and Styling-->
+        <title>Contact</title>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div class="wrapper">
+        <div id="header">
+            <!--Adds the header to the document-->
+            {% include 'header.html' %}
+        </div>
+        <div id="content" class="contactImage">
+            <div id="contactcontent">
+                <div id="signform">
+                    <h1>Parking System Contacts</h1>
+                    <h2> Phone Enquiries</h2>
+
+                    <p>Number: (07) 3856 5863</p>
+                    <p>*Please note that all telephone calls are recorded for security, training and verification
+                        purposes</p>
+
+                    <h2>Email Enquiries </h2>
+                    <br />
+                    <h4>General Enquiries </h4>
+                    transport@atmiya.edu.au
+
+                    <h4>Permit Enquiries </h4>
+                    parkingpermits@atmiya.edu.au
+
+                    <h4>Violation Enquiries </h4>
+                    parkingfines@atmiya.edu.au
+
+                    <h4>Payment Enquiries </h4>
+                    transportfinance@atmiya.edu.au
+                    <br />
+                    <h3>Postal Address </h3>
+
+                    <p>If you are required to send us an original document and do not have access to a scanner,</p>
+                    <p>please send mail to:</p>
+                    <p>Atmiya Parking Systems</p>
+                    <p>APO Box 2843</p>
+                    <p>Brisbane QLD 4001</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

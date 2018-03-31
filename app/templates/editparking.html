@@ -1,0 +1,82 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and Javascript-->
+		<title>Report Vitation</title>
+		<script type="text/javascript" src="../../static/myscript.js"></script>
+		<link rel="stylesheet" type=text/css href="../../static/style.css">
+		<script src="../../static/jquery-3.1.0.min.js"></script>
+		<link rel="icon" type="image/png" href="../../static/atmiyaicon.png">
+	</head>
+
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+		<div id="divformregister" >
+			<form name="register" id="form1register" method="POST" action="">
+				<div id="signform">
+					<h2> Report Citation </h2>
+					<b class="error"> * required Field. </b>
+					<br />
+
+					<p><b>Violation Type: Parking</b></p>
+					<div id ="hideForm">
+
+						<p>Date:
+						<br />
+						<input type="date" name="date" value={{violation['Date']}}>
+						<br />
+						<!--comment-->
+
+						<p>Time:
+						<br />
+						<input type="time" name="time" value={{violation['Time']}}>
+						<br />
+
+						<p> Violation Description:</p>
+						<textarea rows="10" cols="50" name="desc">{{violation['Description']}}</textarea>
+						<br />
+
+						<div class="parking">
+							<p> Permit Number:</p>
+							<input type = "text" name = "permitNumber" class="parking" value={{violation['Permit_Number']}}> </input>
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+							<p > Vehicle Type:</p>
+							<select class="parking" name="VehType">
+								{% if violation['Vehicle_Type'] == "Two Wheeler" %}
+									<option  value="Two Wheeler" selected>Two Wheeler</option>
+									<option  value="Four Wheeler">Four Wheeler</option>
+									<option  value="Other">Other</option>
+								{% elif violation['Vehicle_Type'] == "Four Wheeler" %}
+									<option  value="Two Wheeler">Two Wheeler</option>
+									<option  value="Four Wheeler" selected>Four Wheeler</option>
+									<option  value="Other">Other</option>
+								{% else %}
+									<option  value="Two Wheeler">Two Wheeler</option>
+									<option  value="Four Wheeler">Four Wheeler</option>
+									<option  value="Other" selected>Other</option>
+								{% endif %}
+							</select>
+
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+							<p > Vehicle License Number:</p>
+							<input type="text" name="license"  id="license" class="parking"  onblur="checkEmail()" value={{violation['Vehicle_License_number']}}><!--on blur run local validation and post back to itself for server side validation-->
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+						</div>
+						<br />
+						<input type="Submit"  name="Submit1" value="Submit Report">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

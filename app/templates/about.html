@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<!--Title and Styling-->
+		<title>About</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+	</head>
+	<body>
+		<div class="wrapper">
+		<!--Adds the header to the document-->
+		<div id="header">
+		{% include 'header.html' %}
+		</div>
+		<div id="content" class ="aboutImage">
+			<div id="aboutPageContent">
+				<div id="signform">
+					<h1> About Us</h1>
+
+					<p>Atmiya College is a major Australian university with global reach and a professional outlook.
+					We are one of the fastest growing research colleges in the country and our courses are in very high demand.</p>
+					
+					<p>We are an ambitious and cooperative institution which seeks to provide our students and graduates with the 
+					skills and experience they will need in the real world. We provide our 30,000 students with a unique experience
+					and are highly regarded for our international and national accreditation for our various professional degrees.</p>
+					
+					<p>Our internationally award winning Library is acknowledged as one of the worlds largest collection of both digital and print 
+					media. We invest heavily in collaborative research and interdisciplinary cooperation.</p>
+					
+					<p> We also house the States largest and most efficient student, staff and guest parking systems.</p>
+					<ol>
+						<li>Atmiya College locator was founded in 2003.</li>
+						<li>Atmiya College locator manages over 3,000 permits.</li>
+						<li>Atmiya College can be accessed through iPhone, Android and other devices - see full list of mobile apps <a href="#">here.</a></li>
+						<li>Atmiya College is updated weekly with new information, status or equipment.</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

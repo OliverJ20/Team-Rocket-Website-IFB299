@@ -1,0 +1,74 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--Title, Styling and javascript-->
+        <title>Admin Portal</title>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='admin.js') }}"></script>
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div id="header">
+        <!--Adds the header to the document-->
+        {% include 'header.html' %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {%- for message in messages %}
+                    {% if message == "Your fine payment has been recieved" %}
+                        <div class="alert alert-info"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block body %} {% endblock %}
+    </div>
+    <div class="wrapper">
+        <div id="Content">
+            <div id="admincontent">
+                <div align="center" class="btn-group btn-radio" style="float:left">
+                    <button type="button" class="btn" id="Health">H&S</button>
+                    <button type="button" class="btn" id="Parking">Parking</button>
+                    <button type="button" class="btn" id="Other">Other</button>
+                    <button type="button" class="btn" id="Users">Users</button>
+                </div>
+                <div align="right" class="btn-group" style="float:right">
+                    <a href="" id="add" style="color: inherit; text-decoration: inherit;">
+                        <button type="submit" class="btn">Add</button>
+                    </a>
+                </div>
+                <div id="table">
+                    <div align="center">
+                        </br>
+                        </br>
+                        <select id="field"></select>
+                        <input type="text" id="value" maxlength="30"> </input>
+                        <button id="search" class="btn" onclick="filter()">Search</button>
+                        <button id="search" class="btn" onclick="reset()">Clear</button>
+                    </div>
+                    <h1 align="center" id="title"></h1>
+                    <br>
+                    <table id="display">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div>
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

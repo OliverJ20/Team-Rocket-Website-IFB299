@@ -1,0 +1,171 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and Javascript-->
+		<title>Report Vitation</title>
+		<script type= "text/javascript" src="../../static/myscript.js"></script>
+		<link rel="stylesheet" type=text/css href="../../static/style.css">
+		<script src="../../static/jquery-3.1.0.min.js"></script>
+		<link rel="icon" type="image/png" href="../../static/atmiyaicon.png">
+	</head>
+
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+
+		<div id="divformregister" >
+			<form name="register" id="form1register" method="POST" action="">
+				<div id="signform">
+					<h2> Report Citation </h2>
+					<b class="error"> * required Field. </b>
+					<br />
+
+					<p> Violation Type:</p>
+					<select class="boxItem" name="cmbMoreFunction">
+						{% if violation['Violation_Type'] == "Smoking" %}
+							<option value= "1" id="other" selected>Smoking</option>
+							<option value= "2" id="other2">Other</option>
+						{% else %}
+							<option value= "1" id="other">Smoking</option>
+							<option value= "2" id="other2" selected>Other</option>
+						{% endif %}
+
+					</select>
+
+					<div id ="hideForm">
+						<p>Date:
+						<br />
+						<input type="date" name="date" value="{{violation['Date']}}">
+						<br />
+						<!--comment-->
+						<p>Time:
+						<br />
+						<input type="time" name="time" value="{{violation['Time']}}">
+						<br />
+
+						<p>Violator Name:</p>
+						<input type = "text" name = "name" value="{{violation['User_ID']}}"> </input>
+						<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+						<p> Violation Description:</p>
+                        <!DOCTYPE html>
+                            <html>
+                                <head>
+                                    <script src = "http://code.jquery.com/jquery-1.5.js"></script>
+                                    <script>
+                                        function countChar(val) {
+                                            var len = val.value.length;
+                                            if (len >= 1000) {
+                                                val.value = val.value.substring(0, 1000);
+                                                $('#charNum').text('You have reached the limit.');
+                                            } else {
+                                                $('#charNum').text(1000 - len + ' characters remaining.');
+                                            }
+                                        }
+                                    </script>
+                                </head>
+
+                                <body>
+                                <textarea id = "field" rows = "10" cols = "50"  maxlength = "1000" onkeyup = "countChar(this)" name = "description"></textarea>
+                                <div id = "charNum"></div>
+                                </body>
+                            </html>
+						<br />
+
+						<p>Place on Campus:</p>
+						<input type = "text" name = "location" value="{{violation['Place_in_campus']}}"> </input>
+                        <br />
+						<p> Violator Department:</p>
+						<select class="departmentBoxItem" name="department">
+							{% if violation['Department'] == "Science and Engineering" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering" selected>Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Law" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law" selected>Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Health" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health" selected>Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Creative Industries" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries" selected>Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Business" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business" selected>Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Research" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research" selected>Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% elif violation['Department'] == "Admin" %}
+								<option value= "8" id="other3"></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin" selected>Administration</option>
+							{% else %}
+								<option value= "8" id="other3" selected></option>
+								<option value= "9" id="Science and Engineering">Science and Engineering</option>
+								<option value= "10" id="Law">Law</option>
+								<option value= "11" id="Health">Health</option>
+								<option value= "12" id="Creative Industries">Creative Industries</option>
+								<option value= "13" id="Business">Business</option>
+								<option value= "14" id="Research">Research</option>
+								<option value= "15" id="Admin">Administration</option>
+							{% endif %}
+						</select>
+                        <br />
+						<p>Supervisor:</p>
+						<input type="text" name="supervisor" value="{{violation['Supervisor']}}"> </input>
+						<br />
+						<input type="Submit"  name="Submit1" value="Submit Report">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

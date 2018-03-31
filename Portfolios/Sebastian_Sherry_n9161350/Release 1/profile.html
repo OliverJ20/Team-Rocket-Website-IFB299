@@ -1,0 +1,125 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title and Styling-->
+		<title>Permit Application</title>
+		<script type= "text/javascript" src="myscript.js"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+	</head>
+
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+
+		<div class="wrapper">
+			<div id="Content">
+				<div id="aboutcontent">
+					<h1 align="center">{{Info['Name']}}</h1>
+					<div>
+						<h2 style="margin-left:30px">Parking Permit</h2>
+						{% if Info['Permit'] == [] %}
+						<p style="margin-left: 5%;">No parking permit</p>
+						{% else %}
+
+						<table style="margin-left: 5%;">
+							<tr>
+								<td><Strong>Duration:</Strong></td>
+								<td>{{Info['Permit']['Permit_Duration']}}</td>
+							</tr>
+							<tr>
+								<td><Strong>Starts:</Strong></td>
+								<td>{{Info['Permit']['Permit_Start']}}</td>
+							</tr>
+							<tr>
+								<td><Strong>Ends:</Strong></td>
+								<td>{{Info['Permit']['Permit_End']}}</td>
+							</tr>
+							<tr>
+								<td><Strong>Vehicle Type:</Strong></td>
+								<td>{{Info['Permit']['Vehicle_Type']}}</td>
+							</tr>
+							<tr>
+								<td><Strong>Department:</Strong></td>
+								<td>{{Info['Permit']['Department']}}</td>
+							</tr>
+							<tr>
+								<td><Strong>Approved:</Strong></td>
+								<td>{{Info['Permit']['Approved']}}</td>
+							</tr>
+						</table>
+						{% endif %}
+						<h3 align="center"><a href = "/updateApp"><button type="submit" name="Update" value="go to apply permit">Update Permit</button></a></h3>
+						<h2 style="margin-left:30px">Parking Violations</h2>
+						{% if Info['ParkingVil'] == [] %}
+						<p style="margin-left: 5%;">No parking violations</p>
+						{% else %}
+
+						<table style="margin-left: 5%;">
+							<tr>
+								<th style="width:120px">Date</th>
+								<th style="width:120px">Time</th>
+								<th style="width:120px">Description</th>
+								<th style="width:120px">Vehicle Type</th>
+								<th style="width:120px">Vehicle License number</th>
+								<th></th>
+							</tr>
+							{% for entry in Info['ParkingVil'] %}
+							<tr>
+								<td align="center">{{entry['Date']}}</td>
+								<td align="center">{{entry['Time']}}</td>
+								<td align="center">{{entry['Description']}}</td>
+								<td align="center">{{entry['Vehicle_Type']}}</td>
+								<td align="center">{{entry['Vehicle_License_number']}}</td>
+								<td align="center"><form action="" style="width: 120px" method="post">
+								<button type="submit" name="Pay" value="{{entry['Citation_Number']}}">Pay Fine</button>
+								</form>
+								</td>
+							</tr>
+							{% endfor %}
+						</table>
+						{% endif %}
+						<h2 style="margin-left:30px">Other Violations</h2>
+						{% if Info['OtherVil'] == [] %}
+							<p style="margin-left: 5%;">No other violations</p>
+						{% else %}
+						<table style="margin-left: 5%;">
+							<tr>
+								<th style="width:120px">Type</th>
+								<th style="width:120px">Date</th>
+								<th style="width:120px">Time</th>
+								<th style="width:120px">Description</th>
+								<th style="width:120px">Location</th>
+								<th style="width:120px">Department</th>
+								<th style="width:120px">Supervisor</th>
+								<th></th>
+							</tr>
+							{% for entry in Info['OtherVil'] %}
+							<tr>
+								<td align="center">{{entry['Violation_Type']}}</td>
+								<td align="center">{{entry['Date']}}</td>
+								<td align="center">{{entry['Time']}}</td>
+								<td align="center">{{entry['Description']}}</td>
+								<td align="center">{{entry['Place_in_campus']}}</td>
+								<td align="center">{{entry['Department']}}</td>
+								<td align="center">{{entry['Supervisor']}}</td>
+								<td align="center"><form action="" style="width: 120px" method="post"><button type="submit" name="Pay" value="{{entry['Citation_Number']}}">Pay Fine</button></form>
+								</td>
+							</tr>
+							{% endfor %}
+						</table>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

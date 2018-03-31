@@ -1,0 +1,41 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and javascript-->
+		<title>Notifications Center</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+	</head>
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+		<div class="wrapper">
+			<div id="Content" class ="notificationsImage">
+				<div id="aboutcontent">
+					<table>
+						<tr>
+				    		<th style="width:30px; text-align: center;">Date</th>
+				    		<th style="width:30px; text-align: center;">Time</th>
+				    		<th style="width:50px; text-align: center;">Location</th>
+				    		<th style="width:100px; text-align: center;">Description</th>
+						</tr>
+						{% for issue in info['issues'] %}
+							<tr>
+								<td style="text-align: center;">{{issue['Date']}}</td>
+								<td style="text-align: center;">{{issue['Time']}}</td>
+								<td style="text-align: center;">{{issue['Place_in_campus']}}</td>
+								<td style="text-align: center;">{{issue['Description']}}</td>
+							</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

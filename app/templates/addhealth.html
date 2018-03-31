@@ -1,0 +1,110 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title and styling-->
+		<title>Registration</title>
+        <script type="text/javascript" src="../static/myscript.js"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+
+	<body>
+	<div id="header">
+		<!--Adds the header to the document-->
+	    {% include 'header.html' %}
+	</div>
+		<div id="divformregister">
+			<form name="issue" id="issue" method="POST" action="">
+				<div id="IssueFrom">
+					{% if errors %}
+					    <div class="alert alert-danger">
+						    {{ errors }}
+					    </div>
+					{% endif %}
+					<h2> Health and Safety Issue </h2>
+
+                    <p>Date:
+					<br />
+					<input type="date" name="date">
+
+					<p>Time:
+					<br />
+					<input type="time" name="time">
+
+					<p>Person Name:
+					<br />
+					<input type="text" maxlength="16" id="fname" >
+                    <b class="error"> *</b><span id="fname1" class="error"></span>
+
+					<p>Location:
+					<br />
+					<input type="text" name="location" maxlength="30">
+					<br />
+
+					<p>Description:
+					<br />
+                    <!DOCTYPE html>
+                        <head>
+                            <script src = "http://code.jquery.com/jquery-1.5.js"></script>
+                            <script>
+                                function countChar(val) {
+                                    var len = val.value.length;
+                                        if (len >= 300) {
+                                            val.value = val.value.substring(0, 300);
+                                            $('#charNum').text('You have reached the limit.');
+                                        } else {
+                                            $('#charNum').text(300 - len + ' characters remaining.');
+                                        }
+                                };
+                            </script>
+                        </head>
+
+                    <body>
+                    <textarea id="field" rows="4" cols="60"  maxlength="350" onkeyup="countChar(this)" ></textarea>
+                    <div id="charNum"></div>
+                    </body><br />
+
+					<p>Department:
+					<br />
+					<select class="departmentBoxItem" name="department">
+						<option value= "8" id="other3"></option>
+						<option value= "9" id="Science and Engineering">Science and Engineering</option>
+						<option value= "10" id="Law">Law</option>
+						<option value= "11" id="Health">Health</option>
+						<option value= "12" id="Creative Industries">Creative Industries</option>
+						<option value= "13" id="Business">Business</option>
+						<option value= "14" id="Research">Research</option>
+						<option value= "15" id="Admin">Administration</option>
+					</select>
+
+					<p>Supervisor:
+					<br />
+					<input type="text" name="supervisor" maxlength="16">
+					<br />
+					<br />
+				{% if info['loggedIn'] and info['admin'] %}
+					<p>Resolution Date:
+					<br />
+					<input type="date" name="res_date" value="">
+
+					<p>Resolution Time:
+					<br />
+					<input type="time" name="res_time" value="">
+
+					<p>Resoultion Description:
+					<br />
+					<input type="text" name="res_description" value="" rows="4" cols="60" maxlength="350"><br />
+					<br /> <br />
+				{% endif %}
+					<input type="Submit">
+				</div>
+			</form>
+		</div>
+				{% if info['loggedIn'] and not info['admin'] %}
+					<div class="push"> </div>
+				{% endif %}
+        <footer>
+		<!--Adds the footer to the document-->
+	    {% include 'footer.html' %}
+	    </footer>
+    </body>
+</html>

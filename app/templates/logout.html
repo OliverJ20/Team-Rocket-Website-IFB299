@@ -1,0 +1,28 @@
+<!--<!doctype html>-->
+<html>
+	<head>
+		<!--Title and Styling-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+	</head>
+	<body>
+		<meta http-equiv="refresh" content="5;url={{url_for('index')}}"/>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+				{% include 'header.html' %}</div>
+			<div id="content" class="clearfix">
+				<div id="divformregister">
+					<form><h1 style="text-align: center">You are now logged out<h1></form></div>";
+				</div>
+			</div>
+			<div class="push"></div> <!--keeps footer at the bottom -->
+		</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

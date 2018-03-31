@@ -1,0 +1,68 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and Javascript-->
+		<title>Update Permit Application</title>
+		<script type= "text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+	</head>
+
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+		<div id="content" class="updateImage">
+		<div id="divformregister" >
+			<form name="register" id="form1register"  method="POST" >
+				<div id="signform">
+					<h2> Update Permit</h2>
+					<p> Your parking permit gives you the ability to legally park on campus.</p>
+
+					<p> Vehicle Type:</p>
+					<select name = "options">
+
+						{% if Info['Permit']['Vehicle_Type'] == "Two Wheeler" %}
+							<option  value="Two Wheeler" selected>Two Wheeler</option>
+							<option  value="Four Wheeler">Four Wheeler</option>
+							<option  value="Other">Other</option>
+						{% elif Info['Permit']['Vehicle_Type'] == "Four Wheeler" %}
+							<option  value="Two Wheeler">Two Wheeler</option>
+							<option  value="Four Wheeler" selected>Four Wheeler</option>
+							<option  value="Other">Other</option>
+						{% else %}
+							<option  value="Two Wheeler">Two Wheeler</option>
+							<option  value="Four Wheeler">Four Wheeler</option>
+							<option  value="Other" selected>Other</option>
+						{% endif %}
+					</select>
+					<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+					<p> Permit Duration:</p>
+					<select name="Options">
+						{% if Info['Permit']['Permit_Duration'] == "Yearly" %}
+							<option value="Yearly" selected>Yearly</option>
+							<option  value="Monthly">Monthly</option>
+						{% else %}
+							<option value="Yearly">Yearly</option>
+							<option  value="Monthly" selected>Monthly</option>
+						{% endif %}
+					</select>
+
+					<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+					<br /> <br />
+					By submitting this form, you agree to Atmiya Colleges' <a href="#">Terms of Service</a> and <a href="#">Privacy Policy.</a>
+					<br /> <br />
+					<input type="Submit"  name="Submit1" value = "Submit">
+				</div>
+			</form>
+		</div>
+				<div class="push"></div> <!--keeps footer at the bottom -->
+			</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

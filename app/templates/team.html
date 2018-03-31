@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<!--Title and Styling-->
+		<title>Team Rocket</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<script type= "text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='jquery-3.1.0.min.js')}}"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+				{% include 'header.html' %}
+			</div>
+			<div id="content" class="teamImage">
+                <div id="teamHeader" style="text-align: center"><h1>Team Rocket</h1></div>
+				    <div id="teamContent">
+                        <img src="../static/team/kaelan.jpg">
+						<br />
+						<h3>Project Lead <br />Kaelan Reece</h3>
+						<img src="../static/team/jmari.jpg">
+						<h3>Project Coordinator<br />J-Mari Zeman</h3>
+						<img src="../static/team/seb.jpg">
+						<h3>Lead Programmer<br />Sebastian Sherry</h3>
+						<img src="../static/team/eliot.jpg">
+						<h3>Situations Developer<br />Eliot Wilson</h3>
+						<img src="../static/team/oj.jpg">
+						<h3>Senior Programmer<br />Oliver Johnson</h3>
+						<img src="../static/team/will.jpg">
+						<h3>IS Officer<br />William Minazzo</h3>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br />
+				    </div>
+			    </div>
+		    </div>
+		    <footer>
+				<!--Adds the footer to the document-->
+				{% include 'footer.html' %}
+		    </footer>
+        </div>
+	</body>
+</html>

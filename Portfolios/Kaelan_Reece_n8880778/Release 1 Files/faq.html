@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <!--Title and Styling-->
+        <title>FAQ</title>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div class="wrapper">
+        <div id="header">
+            <!--Adds the header to the document-->
+            {% include 'header.html' %}
+        </div>
+        <div id="content" class="faqImage">
+            <div id="aboutPageContent">
+                <div id="signform">
+                    <h1> FAQ </h1>
+                    <h3>Frequently Asked Health and Safety Questions</h3>
+
+                    <h4>Where can I smoke on campus? </h4>
+                    <p> Atmiya college has a zero tolerance smoke free zone. Penalties apply for violators.</p>
+
+                    <h4>Where do I put the parking permit on my vehicle? </h4>
+                    <p>The permit owner is required to affix the permit to the vehicle wind shield in the lower corner of
+                        the driver side and the front of the vehicle in the case of two wheelers.</p>
+
+                    <h4>How long can I apply for a permit?</h4>
+                    <p>College staff and students may hold monthly and yearly permits, while visitors can only hold daily
+                        and hourly permits.</p>
+
+                    <h4>How do I apply for a permit?</h4>
+                    <p>Staff and students apply <a href="{{ url_for('application') }}">here</a>.</p>
+                    <p>Visitors must visit click <a href="{{ url_for('visitor') }}">here</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

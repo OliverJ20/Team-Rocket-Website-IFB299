@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<!--Title and Styling-->
+		<title>Visitors Information</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <script type= "text/javascript" src="../static/myscript.js"></script>
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<style>
+			input[type=text] {
+				margin: 0px 50;
+				}
+			</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+				{% include 'header.html' %}
+			</div>
+			<div id="content" class ="visitorImage">
+				<div id="aboutcontent">
+					<div id="signform">
+                        {% if errors %}
+					    <div class="alert alert-danger">
+						    {{ errors }}
+					    </div>
+					{% endif %}
+						<h1> Visitor Information </h1>
+						<p>If you are a visitor to the college, you are only entitled to an hourly or daily permit.</p>
+						<p> Visitor parking permits can only be obtained by contacting the health and safety department directly.</p>
+						<p> <b>Please contact us to arrange a permit</b></p>
+						<strong> Phone Number:</strong> (07) 3856 5863
+						<br />
+						<strong> Email Address:</strong> transport@atmiya.edu.au
+						<p>Please click <a href = "{{url_for('contactus')}}">here</a> for more contact information.</p>
+						<p> <b>If you are a student of the college, you must login with your student email and password, please click </b><a href = "/login">here</a></p>
+						<p> If you would like to contact the department, you can do so here:</p>
+						<div id="messsage">
+                            <label>Name: </label>
+							<input type="text" name="name" id="name" maxlength="16">
+{#                            {% for message in form.name.errors %}#}
+{#                                {{ message }}#}
+{#                            {% endfor %}#}
+							<br />
+                            <br />
+							<label>Email Address:</label>
+							<input type="email" name="email" id="username" maxlength="254">
+							<br />
+							<p> Please enter your message below:</p>
+                            <!DOCTYPE html>
+                                <head>
+                                    <script src = "http://code.jquery.com/jquery-1.5.js"></script>
+                                    <script>
+                                        function countChar(val) {
+                                            var len = val.value.length;
+                                            if (len >= 300) {
+                                                val.value = val.value.substring(0, 300);
+                                                $('#charNum').text('You have reached the limit.');
+                                            } else {
+                                                $('#charNum').text(300 - len + ' characters remaining.');
+                                            }
+                                        };
+                                    </script>
+                                </head>
+
+                                <body>
+                                <textarea id = "field" rows = "7" cols = "60"  maxlength = "300" onkeyup = "countChar(this)" ></textarea>
+                                <div id = "charNum"></div>
+                                </body>
+							<div>
+								<br />
+								<a href="/index" id="add" style="color: inherit; text-decoration: inherit;"><button type="submit" class="btn" onclick=youSure()>Submit</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

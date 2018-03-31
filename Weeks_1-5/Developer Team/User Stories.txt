@@ -1,0 +1,28 @@
+﻿Parking;;
+  - As a patrol staff who uses parking, I want to be able to report the violations I see so I can resolve issues quickly.
+  - As a parking permit holder, I should be able to check the status of my parking permit so I can update my permit if necessary.
+  - As a student I want the application to update me regarding changes to parking rules and regulations.
+  - As a visitor I'd like my interface to be easily accessible and options to opt in/out of notifications so that I can be informed(?).
+  - As a system admin of finance I'd like to be able to access the payments so that it's regulated and under control.
+  - As a staff member I'd like the interface to allow me to access my profile containing information of my current parking tickets and health violations (if any) so that I can be aware of possible risks or fines.
+  - As a staff member I'd like the interface to be simple and easily accessible so that I can check efficiently while moving around.
+  - As a staff member I'd like to have access to an easy pay option (card, PayPal?) so that I can pay as I go without worrying about overdue fines.
+  - As a student I'd like to be able to turn off notifications so that I can avoid accidental interruption during classes.
+  - As a payee I want to be certain that my account information is secure so that my data isn’t misused.
+  - As a system administrator I want to have real time access to the status of parking permits or violations so that I can quickly resolve issues in case there was a mistake or other problem.
+  - As a system administrator I want the ability to distinguish between visitors, permit holders, etc. so that it is easier to manage the different types of users.
+  - As a system administrator I want the ability to easily update the application so that bug fixes, data base changes or UI changes are quickly and easily applied, enabling the system to run smoother.
+
+Health;;
+  - As a visitor who may not be aware of any updates, I want to have information sent to me if there are any major health breaches so that I remain safe.
+  - As an administrative staff, I want to review any H&S reports sent to the system in real time so that people remain safe or an issue can be resolved faster in the future.
+  - As a potential violator of H&S, I want to be informed if I have made any violations so that I don’t make them in the future.
+  - As a user of the campus parking (Visitor, Staff, Student, Admin), I want to be kept aware of what constitutes as a health violation.
+  - As a reporter of violations, I want to be notified by the system administrators when the issue has been resolved.
+  - As a client user of the system (Visitor, Staff, Student), I want a singular front end location where I can access my permit information and report violations.
+  - As an admin, I want to be able to receive payment notifications so that I can mark violations as resolved.
+  - As a violator, I want to be able to check the status of the of my payment to determine my next actions.
+  - As a violator, I want to be notified when my payment is received to ensure my actions have been amended.
+  - As a system administrator I want the ability to update users so that they can stay current with the rules and regulations set out by the college.
+  - As a system admin I'd like to be able to access the update/notification system so that all users are up to date with health regulations.
+  - As a visitor I want to know the latest rules and processes so I can adhere to them.

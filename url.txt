@@ -1,0 +1,15 @@
+http://ec2-54-206-46-45.ap-southeast-2.compute.amazonaws.com
+
+
+Login Credentials:
+
+//Not case sensitive
+
+Admin: 
+admin@atmiya.edu.au Password: admin
+
+User with permit:
+Alex.Parks@atmiya.edu.au Password: Martha
+
+User without permit:
+Bob.McDude@atmiya.edu.au Password: bruh

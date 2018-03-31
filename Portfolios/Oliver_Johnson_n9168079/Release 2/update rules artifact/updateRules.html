@@ -1,0 +1,47 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--Title, Styling and Javascript-->
+        <title>Update Rules</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename='jquery-3.1.0.min.js') }}"></script>
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div id="header">
+        <!--Adds the header to the document-->
+        {% include 'header.html' %}
+    </div>
+    <div id="divformregister">
+        <form name="update" id="form1update" method="POST" action="">
+            <div id="signform">
+
+                <h2> Update Rules </h2>
+                <br/>
+                {% if errors %}
+                    <div class="alert alert-danger">
+                        {{ errors }}
+                    </div>
+                {% endif %}
+
+                <h4>Rule Title:</h4>
+                <input type="text" name="title" value="{{ rules["Rule_Title"] }}"> </input>
+
+                <h4> Rules Description:</h4>
+                <textarea rows="10" cols="50" name="description">{{ rules["Rule_Description"] }}</textarea>
+                <br/>
+                <br/>
+                <input type="Submit" name="Submit1" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div class="push"></div> <!--keeps footer at the bottom -->
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

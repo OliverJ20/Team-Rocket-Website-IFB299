@@ -1,0 +1,160 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title and styling-->
+		<title>Registration</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+
+	<body>
+	<div id="header">
+		<!--Adds the header to the document-->
+	{% include 'header.html' %}
+	</div>
+		<div id="divformregister" >
+			<form name="issue" id="issue" method="POST" action="">
+				<div id="IssueFrom">
+					<h2> Health and Safety Issue </h2>
+					<p>ID: {{issue['Issue_Number']}}</p>
+					<p>Date:
+					<br />
+					<input type="date" name="date" value="{{issue['Date']}}">
+
+					<p>Time:
+					<br />
+					<input type="time" name="time" value="{{issue['Time']}}">
+
+					<p>Person Name:
+					<br />
+					<input type="text" name="name" value="{{issue['Person_Name']}}"><br />
+
+					<p>Location:
+					<br />
+					<input type="text" name="location" value="{{issue['Place_in_campus']}}">
+					<br />
+
+					<p>Description:
+					<br />
+					<textarea rows="10" cols="50" name="description">{{issue['Description']}}</textarea>
+					<br />
+
+					<p>Department:
+					<br />
+					<select class="departmentBoxItem" name="department">
+						{% if issue['Department'] == "Science and Engineering" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering" selected>Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Law" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law" selected>Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Health" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health" selected>Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Creative Industries" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries" selected>Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Business" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business" selected>Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Research" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research" selected>Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% elif issue['Department'] == "Admin" %}
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin" selected>Administration</option>
+						{% else %}
+							<option value= "8" id="other3" selected></option>
+							<option value= "9" id="Science and Engineering">Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						{% endif %}
+					</select>
+					<br />
+
+					<p>Supervisor:
+					<br />
+					<input type="text" name="supervisor" value="{{issue['Supervisor']}}">
+					<br />
+
+					<p>Resoultion Date:
+					<br />
+					{% if issue['Resolution_Date'] is not none %}
+						<input type="date" name="res_date" value="{{issue['Resolution_Date']}}">
+					{% else %}
+						<input type="date" name="res_date" value="">
+					{% endif %}
+
+					<p>Resoultion Time:
+					<br />
+					{% if issue['Resolution_Time'] is not none %}
+						<input type="time" name="res_time" value="{{issue['Resolution_Time']}}">
+					{% else %}
+						<input type="date" name="res_time" value="">
+					{% endif %}
+
+					<p>Resoultion Description:
+					<br />
+					{% if issue['Resolution_Description'] is not none %}
+						<textarea rows="10" cols="50" name="res_description">{{issue['Resolution_Description']}}</textarea>
+					{% else %}
+						<textarea rows="10" cols="50" name="res_description"></textarea>
+					{% endif %}
+					<br />
+					<br /> <br />
+					<input type="Submit">
+				</div>
+			</form>
+		</div>
+
+    <footer>
+		<!--Adds the footer to the document-->
+	{% include 'footer.html' %}
+	</footer>
+	</body>
+</html>

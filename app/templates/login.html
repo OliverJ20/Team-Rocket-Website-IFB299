@@ -1,0 +1,54 @@
+<!--<!doctype html>-->
+<html>
+	<head>
+		<!--Title and Styling-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+			<style>
+			input[type=password] {
+				margin: 0px 30;
+				}
+			</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+			{% include 'header.html' %}</div>
+			<div id="content" class="clearfix">
+				<div id="divformregister">
+					<form name="login"  action=""  method="POST">
+						<div id="signform">
+							<h1> Log in </h1>
+							{% if user != "" %}
+								<p class="error">Invalid Creditials</p> 
+								<label>Email Address:</label>
+								<input type="text" name="email" id="username" maxlength="254" value={{user}}>
+							{% else %}
+								<br />
+								<label>Email Address:</label>
+								<input type="text" name="email" id="username" maxlength="254">
+							{% endif %}
+							<br />
+							<br />
+							<label>Password:</label>
+							<input type="password" name="password" id="password" maxlength="128">
+							<br />
+							<br />
+							<div>
+								<br />
+								<input type="submit" name="login" value="Login">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+		</div>
+		<!--Adds the footer to the document-->
+		<footer>{% include 'footer.html' %}	</footer>
+	</body>
+</html>

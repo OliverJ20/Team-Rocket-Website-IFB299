@@ -1,0 +1,119 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--Title, Styling and Javascript-->
+        <title>Violation Payment</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename='jquery-3.1.0.min.js') }}"></script>
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div id="header">
+        <!--Adds the header to the document-->
+        {% include 'header.html' %}
+    </div>
+    <div id="divformregister">
+        <form name="register" id="form1register" method="POST" action="">
+            <div id="signform">
+                <h2> Pay Violation </h2>
+                {% if errors %}
+                    <div class="alert alert-danger">
+                        {{ errors }}
+                    </div>
+                {% endif %}
+
+                <h4> Payment Summary </h4>
+                <h4> Parking Violation: ${{ amt }}</h4>
+                <div id="payColumn">
+                    <br/>
+                    <h3>Billing Information</h3>
+                    First Name
+                    <input type="text" name="first" maxlength="16"> </input>
+
+                    <br/> <br/>
+                    Last Name
+                    <input type="text" name="last" maxlength="16"> </input>
+
+					<h4> Payment Summary </h4>
+					<h4> Fine Amount: ${{amt}}</h4>
+					<div id="payColumn">
+
+                    <p>Billing Address, line 2</p>
+                    <input type="text" name="addr2" maxlength="40"> </input>
+
+                    <p>City</p>
+                    <input type="text" name="city" maxlength="40"> </input>
+
+                    <p>Zip or Postal Code</p>
+                    <input type="text" name="zip" maxlength="6"> </input>
+
+                    <p>Phone Number</p>
+                    <input type="text" name="phone" maxlength="15"> </input>
+
+                    <h3> Please select a payment method</h3>
+                    <h5> Atmiya College supports the following online payment options:</h5>
+                    <img src="../static/paymentOptions/master.png">
+                    <img src="../static/paymentOptions/visa.png">
+                    <br/> <br/>
+                    <select class="boxItem" name="cmbCardType">
+                        <option value="Visa" id="Visa">Visa</option>
+                        <option value="MasterCard" id="MasterCards">MasterCard</option>
+                    </select>
+
+                    <br/> <br/>
+                    <p>Card Number:</p>
+                    <input type="text" name="cardNum" maxlength="16"> </input>
+
+                    <br/> <br/>
+                    <p> Expiration Date and Security code:</p>
+                    <select class="boxItem" name="cmbExpMon" style="width:40px;">
+                        <option value="--" id="">--</option>
+                        <option value="01" id="">01</option>
+                        <option value="02" id="">02</option>
+                        <option value="03" id="">03</option>
+                        <option value="04" id="">04</option>
+                        <option value="05" id="">05</option>
+                        <option value="06" id="">06</option>
+                        <option value="07" id="">07</option>
+                        <option value="08" id="">08</option>
+                        <option value="09" id="">09</option>
+                        <option value="10" id="">10</option>
+                        <option value="11" id="">11</option>
+                        <option value="12" id="">12</option>
+                    </select>
+                    <select class="boxItem" name="cmbExpYr" style="width:55px;">
+                        <option value="----" id="">----</option>
+                        <option value="01" id="">2016</option>
+                        <option value="02" id="">2017</option>
+                        <option value="03" id="">2018</option>
+                        <option value="04" id="">2019</option>
+                        <option value="05" id="">2020</option>
+                        <option value="06" id="">2021</option>
+                        <option value="07" id="">2022</option>
+                        <option value="08" id="">2023</option>
+                        <option value="09" id="">2024</option>
+                        <option value="10" id="">2025</option>
+                        <option value="11" id="">2026</option>
+                        <option value="12" id="">2027</option>
+                        <option value="12" id="">2028</option>
+                        <option value="12" id="">2029</option>
+                        <option value="12" id="">2030</option>
+                    </select>
+                    <input type="text" name="csv" style="width:45px;" maxlength="3"> </input> <a href="#">? </a>
+                    <br/>
+                    <br/><br/>
+                    <button> Continue</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="push"></div> <!--keeps footer at the bottom -->
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

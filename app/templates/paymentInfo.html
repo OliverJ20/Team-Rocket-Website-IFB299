@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<!--Title and Styling-->
+		<title>Payment Information</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<script type= "text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='jquery-3.1.0.min.js')}}"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+				{% include 'header.html' %}
+			</div>
+			<div id="content" class="paymentImage">
+				<div id="paymentInfoContent" >
+					<div id="signform">
+						<h1>Infringements and Payment</h1>
+		
+						<h3>Regulations & Penalties - Infringements</h3>
+						In order to ensure the fair and equitable use of parking on campus, parking regulations are enforced and penalties apply for breaches. Infringement notices will be issued to vehicles that contravene the parking regulations. Fines for individual offences range from half a penalty unit up to 10 penalty units as defined under the Penalty and Sentences Act 1992.
+
+						<p>Vehicles parked in contravention of the Act can also be seized, removed or held as per Section 8 of the Atmiya Act (1998).</p>
+
+						<p>If you feel that the issuing of the infringement was harsh or unjust you can apply for the infringement to be waived. You should be aware however that infringements are waived only in exceptional circumstances and if you have in fact parked illegally, the infringement will most likely be upheld. The decision will be final and no further correspondence will be entered into by Atmiya College.</p>
+
+						<h3>Payment of Infringements</h3>
+						
+						<p>Payment of infringements can be made within 1 week of the violation.
+
+						The following payment options are available:</p>
+
+						<li>Credit Card by Phone or Online</li>
+						<li>Cheque by Mail</li>
+						<li>Australia Post</li>
+						<br />
+						<p>Failure to pay (or appeal) the fine within 1 week will result in a reminder notice being sent and a further fee being added to the fine. Should the matter remain unpaid, it will then be transferred to the State Penalties Enforcement Registry (SPER) for recovery action and will incur further costs.</p>
+						
+						<Strong> If you are unable to utilise these payment methods before the specified deadline, please click <a href="{{url_for('contactus')}}">here </a> to contact the department</Strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+				<!--Adds the footer to the document-->
+				{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

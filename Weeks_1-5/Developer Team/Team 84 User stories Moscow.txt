@@ -1,0 +1,77 @@
+Parking Permits
+1. (S) As a user I would like to be able to apply for a parking permit quickly and easily.
+
+2. (S)(possible must) As a user I would like to be able to apply without having to hand in hard copy papers or application forms or have to provide an excessive identification or proof of address.
+
+3. (M) As a user I would like to have the option to select how long I require the permit for and an option to extend an existing permit rather than re-apply.
+
+4. (M) As a user I want to be able to pay for a permit easily online via credit card or direct transfer.
+
+5. (M) As a staff member I would like the validity of existing parking permits to update automatically every day to ensure they are all in date.
+
+6. (M) As a staff member I would like a database of permits to be easily accessible and be able to search and find permits depending on vehicle type(two wheelers, four wheelers, other), person name, department making the request, permit duration (yearly, monthly, daily, hourly), permit start date, permit end date.
+
+7. (M) As someone who reviews the parking permits I want to ensure that all required information is provided by applicants to reduce the time spent reviewing applications.
+
+8. (S) As a visitor I want to know the status of my parking permit application so that I can contact the department that applied on my behalf.
+
+9. (M) As a vehicle owner I would like to receive information outlining the parking rules and possible fines so that I am aware of these rules.
+
+Violations and Fines
+1. (M) As a parking permit holder I would like to be able to be notified if i receive a new parking violation as well as the type of violation.
+
+2. (M) As a permit holder I would also like to be made aware of how much I need to pay and how I should pay the fine.
+
+3. (C) As a visitor I would like to know where I can park and be assured that I will not receive a parking violation in this spot.
+
+4. (M) As an employee of the patrol force who gives out fines, I would like to be able to easily give out the correct parking violation to the permit holder or non permit holder who has made the violation. This includes the date and time of the violation, violation type (parking, smoking, other), description of the violation. For vehicles with a parking permit it also includes, permit number, and the vehicle license number and vehicle type. For vehicles without parking permit, the citation includes the vehicle license number and vehicle type.
+
+5. (M) As an employee of the patrol force I would like to be able to easily give out the correct smoking violation to rule breakers. This includes the date and time of the violation, violation type (parking, smoking, other), description of the violation, violator name, department the violator belongs to, violator supervisor, date, time, and place in the campus.
+
+6. (W) As a patrol force employee I would like to reduce human error surrounding the types of violations.
+
+7. (M) As a member of the department I would like to levy the fine correctly.
+
+8. (M) As a member of the department I would and make sure that violations and fines are paid on time by tracking the payments correctly. Payments need to be received within a week.
+
+9. (M) As a member of the department if a payment is not received within a week the violation must be processed in terms of late payment, no payment etc. and the violator must be notified to pay.
+
+Health and Safety Reports
+1. (W) As a car mania I would like to park in the undercover area instead of outdoors.
+
+2. (W) As a smoke free person I would like to have the smoke free areas to prevent inhalation of harmful substances.
+
+3. (M) As a patrol, I would like to receive the date, time, person name, department, and description of the issue.
+
+General Requirements
+1. (M) As a full-time lecturer I want the computing solution to provide only relevant information
+
+2. (M) As a visitor I want to get information on car permit and violations
+
+3. (M) As a part-time college student I want to know about permit duration in a particular period
+
+4. (C) As a health and safety department employee I want to reduce the occurrence of human errors so that others interacting with the solution are provided with correct information
+
+5. (W) As a disabled person i would like to have more parkings near buildings
+
+MUST HAVES:
+3. (M) As a user I would like to have the option to select how long I require the permit for and an option to extend an existing permit rather than re-apply.
+4. (M) As a user I want to be able to pay for a permit easily online via credit card or direct transfer.
+5. (M) As a staff member I would like the validity of existing parking permits to update automatically every day to ensure they are all in date.
+6. (M) As a staff member I would like a database of permits to be easily accessible and be able to search and find permits depending on vehicle type(two wheelers, four wheelers, other), person name, department making the request, permit duration (yearly, monthly, daily, hourly), permit start date, permit end date.
+7. (M) As someone who reviews the parking permits I want to ensure that all required information is provided by applicants to reduce the time spent reviewing applications.
+9. (M) As a vehicle owner I would like to receive information outlining the parking rules and possible fines so that I am aware of these rules.
+
+1. (M) As a parking permit holder I would like to be able to be notified if i receive a new parking violation as well as the type of violation.
+2. (M) As a permit holder I would also like to be made aware of how much I need to pay and how I should pay the fine.
+4. (M) As an employee of the patrol force who gives out fines, I would like to be able to easily give out the correct parking violation to the permit holder or non permit holder who has made the violation. This includes the date and time of the violation, violation type (parking, smoking, other), description of the violation. For vehicles with a parking permit it also includes, permit number, and the vehicle license number and vehicle type. For vehicles without parking permit, the citation includes the vehicle license number and vehicle type.
+5. (M) As an employee of the patrol force I would like to be able to easily give out the correct smoking violation to rule breakers. This includes the date and time of the violation, violation type (parking, smoking, other), description of the violation, violator name, department the violator belongs to, violator supervisor, date, time, and place in the campus.
+7. (M) As a member of the department I would like to levy the fine correctly.
+8. (M) As a member of the department I would and make sure that violations and fines are paid on time by tracking the payments correctly. Payments need to be received within a week.
+9. (M) As a member of the department if a payment is not received within a week the violation must be processed in terms of late payment, no payment etc. and the violator must be notified to pay.
+
+3. (M) As a patrol, I would like to receive the date, time, person name, department, and description of the issue.
+
+1. (M) As a full-time lecturer I want the computing solution to provide only relevant information
+2. (M) As a visitor I want to get information on car permit and violations
+3. (M) As a part-time college student I want to know about permit duration in a particular period

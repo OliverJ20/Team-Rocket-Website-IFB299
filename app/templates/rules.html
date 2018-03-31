@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<!--Title and Styling-->
+		<title>Rules & Regulations</title>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<script type= "text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='jquery-3.1.0.min.js')}}"></script>
+
+		<script>
+
+		</script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="header">
+				<!--Adds the header to the document-->
+				{% include 'header.html' %}
+			</div>
+			<div id="content" class="ruleImage">
+				<div id="rulescontent" >
+					<div id="signform">
+						{% if info['loggedIn'] and info['admin'] %}
+							<h3 align="right"><a href = "/addRules"><button type="submit" name="UpdateRules" value="go to update rules">Add Rule</button></a></h3>
+						{% endif %}
+
+						<h1>Rules & Regulations </h1>
+
+						<p>The Atmiya College Act 1995 (Qld) authorises a Regulated Traffic Area to be established on the college campus. A violaton of the posted traffic (including parking) regulations constitutes an offence under the Act, and penalites may be imposed under the State Penalties Enforcement Act 1999 (Qld).</p>
+						<p>There are also some simple steps you can follow to ensure that you comply with the posted Traffic Regulations, and do not receive an infringement.</p>
+						<p>If you have any doubt about whether or not you are allowed to park in a particular location, contact the Transport Systems office on 07 3139 2428.</p>
+						<p>Only park within marked parking bays.</p>
+
+                        <li>Do not park in an area just because other cars are there, particularly in a grassed or dirt area.</li>
+						<li>Do not park somewhere not set side for parking, even if 'you will only be five minutes'.</li>
+						<li>Do not park somewhere because 'you have always parked there' or because 'a friend said it was okay', the owner of the vehicle is responsible.</li>
+						<li>Do not leave notes on your dashboard; officers will issue a violation regardless of what you have written on a note</li>
+						<li>Read and follow all regulatory signage.</li>
+						<li>Before leaving your vehicle, paalways double check that your parking permit is clearly visible from the outside of your vehicle</li>
+
+						<h3 id = "listofOffences">Traffic Offences</h3>
+
+						<p>The following is a list of offences for which you could receive an infringement. Click on each offence in the following list to find out why an infringement notice was issued and in some cases what is not a valid reason for requesting that the infringement be waived. These offences are listed in order of most frequently issued. If, after reading these explanations, you feel that your infringement was issued incorrectly you may apply for a waiver.</p>
+
+						<script type="text/javascript">displayRules("{{info['admin']}}"); </script>
+						<div id="display"></div>
+					</div>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br />
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(".ruleInfo1").hide();
+				$(".ruleInfo2").hide();
+				$(".ruleInfo3").hide();
+				$(".ruleInfo4").hide();
+				$(".ruleInfo5").hide();
+				$(".ruleInfo6").hide();
+				$(".ruleInfo7").hide();
+				$(".ruleInfo8").hide();
+				$(".ruleInfo9").hide();
+				$(".ruleInfo10").hide();
+				$(".ruleInfo11").hide();
+				$(".ruleInfo12").hide();
+				$(".ruleInfo13").hide();
+				$(".ruleInfo14").hide();
+				$(".ruleInfo15").hide();
+			</script>
+		</div>
+		<footer>
+				<!--Adds the footer to the document-->
+				{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

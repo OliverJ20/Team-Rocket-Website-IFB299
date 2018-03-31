@@ -1,0 +1,149 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and Javascript-->
+		<title>Report Vitation</title>
+		<script type= "text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='jquery-3.1.0.min.js')}}"></script>
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<script>
+			$(document).ready(function() {
+				//$("#hideForm").show();
+				$(".boxItem").change(function () {
+					var selectedValue = parseInt(jQuery(this).val());
+					//Depend on Value i.e. 0 or 1 respective function gets called.
+					switch (selectedValue) {
+						case 0:
+							pushHide();
+							formShow();
+							parkingShow();
+							break;
+						case 1:
+							pushHide();
+							parkingHide();
+							formShow();
+							break;
+						case 2:
+							pushHide();
+							parkingHide();
+							formShow();
+							break;
+							//etc...
+						case 5:
+							formHide();
+							pushShow();
+						default:
+							formHide();
+							break;
+					}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+
+		<div id="divformregister" >
+			<form name="register" id="form1register" method="POST" action="">
+				<div id="signform">
+					<h2> Report Citation </h2>
+					<b class="error"> * required Field. </b>
+					<br />
+                    {% if errors %}
+					    <div class="alert alert-danger">
+						    {{ errors }}
+					    </div>
+					{% endif %}
+					<p> Violation Type:</p>
+					<select class="boxItem" name="cmbMoreFunction">
+						<option value= "5" id="other3"></option>
+						<option value= "0" id="park">Parking</option>
+						<option value= "1" id="other">Smoking</option>
+						<option value= "2" id="other2">Other</option>
+					</select>
+
+					<div id ="hideForm">
+						<p>Date:
+						<br />
+						<input type="date" name="date">
+						<br />
+						<!--comment-->
+						<p>Time:
+						<br />
+						<input type="time" name="time">
+						<br />
+
+						<p>Violator Name:</p>
+						<input type = "text" name = "name"> </input>
+						<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+						<p> Violation Description:</p>
+						<textarea rows="10" cols="50" name="desc"> </textarea>
+						<br />
+
+						<p>Place on Campus:</p>
+						<input type = "text" name = "location"> </input>
+						<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+						<p> Violator Department:</p>
+						<select class="departmentBoxItem" name="department">
+							<option value= "8" id="other3"></option>
+							<option value= "9" id="Science and Engineering" selected>Science and Engineering</option>
+							<option value= "10" id="Law">Law</option>
+							<option value= "11" id="Health">Health</option>
+							<option value= "12" id="Creative Industries">Creative Industries</option>
+							<option value= "13" id="Business">Business</option>
+							<option value= "14" id="Research">Research</option>
+							<option value= "15" id="Admin">Administration</option>
+						</select>
+
+						<div class="parking">
+							<p> Permit Number:</p>
+							<input type = "number" name = "permitNumber" class="parking"> </input>
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+							<p > Vehicle Type:</p>
+							<select class="parking" name="VehType">
+								<option value= "empty"></option>
+								<option value= "Two Wheeler">Two Wheeler</option>
+								<option value= "Four Wheeler">Four Wheeler</option>
+								<option value= "Other">Other</option>
+							</select>
+
+
+
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+
+							<p > Vehicle License Number:</p>
+							<input type="text" name="license"  id="license" class="parking"  onblur="checkEmail()"><!--on blur run local validation and post back to itself for server side validation-->
+							<b class="error"> *</b><span id="email1" class="error"> </span><!--Display Error Message in line-->
+						</div>
+
+						<p>Immediate Action?
+						<br />
+						<input type="radio" name="selection" value="Yes" >Yes<!--post back to itself for server side validation-->
+						<input type="radio" name="selection"  value="No">No<!--post back to itself for server side validation-->
+						<br />
+						<br />
+						<br />
+						<input type="Submit"  name="Submit1" value="Submit Report">
+					</div>
+					<script type="text/javascript">
+						$("#hideForm").hide();
+					</script>
+				</div>
+			</form>
+		</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+	</body>
+</html>

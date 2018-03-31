@@ -1,0 +1,114 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<!--Title, Styling and javascript-->
+		<title>Permit Application</title>
+		<script type="text/javascript" src="{{ url_for('static', filename='myscript.js') }}"></script>
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+		<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+		<script src="{{ url_for('static', filename='jquery-3.1.0.min.js')}}"></script>
+	</head>
+
+	<div>
+		<div id="header">
+			<!--Adds the header to the document-->
+			{% include 'header.html' %}
+		</div>
+
+		<script>
+			function updateEndDate() {
+				var dur = $("#duration").val();
+				if ($("#startDate").val() != "") {
+					var date = new Date(flipDate($("#startDate").val()));
+
+					if (dur == "Monthly") {
+						var endDate = new Date(new Date(date).setMonth(date.getMonth()+1));
+					} else {
+						var endDate = new Date(new Date(date).setFullYear(date.getFullYear()+1));
+					}
+					endDate = [pad(endDate.getDate()), pad(endDate.getMonth()+1), endDate.getFullYear()].join('/');
+					$("#endDate").attr("value",endDate);
+				}
+			}
+
+			function flipDate(date) {
+				var splits = date.split("/");
+				return [splits[2],splits[1],splits[0]].join('/');
+			}
+
+			//From stack overflow
+			function pad(s) { return (s < 10) ? '0' + s : s; }
+		</script>
+		<div id="content" class="applicationImage">
+		<div id="divformregister">
+			<form name="register" id="form1register" method="POST" action="">
+				<div id="signform">
+                    {% if errors %}
+					    <div class="alert alert-danger">
+						    {{ errors }}
+					    </div>
+					{% endif %}
+					<h2>Apply For Parking Permit </h2>
+					<p>Your parking permit gives you the ability to legally park on campus.</p>
+					<br />
+					{% if errors %}
+					    <div class="alert alert-danger">
+						    {{ errors }}
+                        </div>
+					{% endif %}
+
+					<p> Vehicle Type:
+					<br />
+					<select name="vehicleType">
+						<option></option>
+						<option value= "Two Wheeler">Two Wheeler</option>
+						<option value= "Four Wheeler">Four Wheeler</option>
+						<option value= "Other">Other</option>
+					</select>
+                    <br />
+					<p> Permit Duration:
+					<br />
+					<select name="duration" id=duration onchange="updateEndDate()">
+						<option></option>
+						<option value= "Yearly">Yearly</option>
+						<option value= "Monthly">Monthly</option>
+					</select>
+
+					<p>Permit Start:
+						<br />
+						<input type="text" name="startDate" id=startDate onchange="updateEndDate()">
+						<br />
+
+					<p>Permit End:
+						<br />
+						<input readonly type="text" name="endDate" id=endDate>
+						<br />
+
+					<p>Department:</p>
+					<select class="departmentBoxItem" name="department">
+						<option value= "8" id="other3" selected></option>
+						<option value= "9" id="Science and Engineering">Science and Engineering</option>
+						<option value= "10" id="Law">Law</option>
+						<option value= "11" id="Health">Health</option>
+						<option value= "12" id="Creative Industries">Creative Industries</option>
+						<option value= "13" id="Business">Business</option>
+						<option value= "14" id="Research">Research</option>
+						<option value= "15" id="Admin">Administration</option>
+					</select>
+				<br /> <br />
+					By submitting this form, you agree to Atmiya Colleges' <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+					<br />. <br />
+					<input type="Submit" name="Submit1" value="Submit">
+				</div>
+			</form>
+		</div>
+		<div class="push"></div> <!--keeps footer at the bottom -->
+		</div>
+		<footer>
+			<!--Adds the footer to the document-->
+			{% include 'footer.html' %}
+		</footer>
+    </div>
+	</body>
+</html>

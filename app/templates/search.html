@@ -1,0 +1,160 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!--Title and Styling-->
+        <title>Permit Application</title>
+        <script type="text/javascript" src="myscript.js"></script>
+        <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/png" href="../static/atmiyaicon.png">
+    </head>
+
+    <body>
+    <div id="header">
+        <!--Adds the header to the document-->
+        {% include 'header.html' %}
+    </div>
+
+    <div class="wrapper">
+        <div id="Content">
+            <div id="aboutcontent">
+                <div>
+                    <form>
+                        <h2>Search</h2>
+                        <br/>
+                        <input type="text">
+
+                        <h2>By:</h2>
+                        <select class="boxItem" name="searchBy">
+                            <option value="5" id="other3"></option>
+                            <option value="0" id="park">Permits</option>
+                            <option value="1" id="other">Parking Violations</option>
+                            <option value="2" id="other2">Smoking Violations</option>
+                            <option value="2" id="other2">Other Violations</option>
+                        </select>
+                        <br/>
+                        <h3><a href="/updateApp">
+                            <button type="submit" name="Update" value="go to apply permit">Search</button>
+                        </a></h3>
+                    </form>
+
+                    <strong>Everything below is dynamically generated. There will be nothing here until the user presses
+                        search button.</strong>
+
+                    <h2 style="margin-left:30px">Parking Permits</h2>
+                    <p style="margin-left: 5%;">No Results Found</p>
+
+                    <table style="margin-left: 5%;">
+                        <tr>
+                            <th style="width:120px">Duration</th>
+                            <th style="width:120px">Starts</th>
+                            <th style="width:120px">Ends</th>
+                            <th style="width:120px">Vehicle Type</th>
+                            <th style="width:120px">Department</th>
+                            <th style="width:120px">Status</th>
+                            <th style="width:120px">Permit Holder</th>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center">
+                                <form action="" style="width: 120px" method="post">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 style="margin-left:30px">Parking Violations</h2>
+                    <p style="margin-left: 5%;">No Results Found</p>
+
+                    <table style="margin-left: 5%;">
+                        <tr>
+                            <th style="width:120px">Date</th>
+                            <th style="width:120px">Time</th>
+                            <th style="width:120px">Description</th>
+                            <th style="width:120px">Vehicle Type</th>
+                            <th style="width:120px">Vehicle License number</th>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center">
+                                <form action="" style="width: 120px" method="post">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 style="margin-left:30px">Smoking Violations</h2>
+
+                    <table style="margin-left: 5%;">
+                        <tr>
+                            <th style="width:120px">Type</th>
+                            <th style="width:120px">Date</th>
+                            <th style="width:120px">Time</th>
+                            <th style="width:120px">Description</th>
+                            <th style="width:120px">Location</th>
+                            <th style="width:120px">Department</th>
+                            <th style="width:120px">Supervisor</th>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 style="margin-left:30px">Other Violations</h2>
+
+                    <table style="margin-left: 5%;">
+                        <tr>
+                            <th style="width:120px">Type</th>
+                            <th style="width:120px">Date</th>
+                            <th style="width:120px">Time</th>
+                            <th style="width:120px">Description</th>
+                            <th style="width:120px">Location</th>
+                            <th style="width:120px">Department</th>
+                            <th style="width:120px">Supervisor</th>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div> <!--keeps footer at the bottom -->
+    <footer>
+        <!--Adds the footer to the document-->
+        {% include 'footer.html' %}
+    </footer>
+    </body>
+</html>

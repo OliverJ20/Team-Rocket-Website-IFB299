@@ -1,0 +1,58 @@
+<head>
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<div class="headImage">
+    <img src="../static/atmiyalogo.png" id="collegeLogo">
+</div>
+<!--<div id='nav'>-->
+<div id='nav'>
+
+    <div class='nav-wrap'>
+        <br/>
+        <ul>
+            {% if info['loggedIn'] and info['numIssues'] != 0 %}
+                <li style="float:left"><a href="{{ url_for('notifications') }}">Notifications <span class="badge" style="color: #FF1717">{{ info['numIssues'] }}</span></a>
+            {% endif %}
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li>
+                {% if info['loggedIn'] and not info['admin'] %}
+                    <a href="{{ url_for('application') }}" class="dropbtn">Apply for Permit</a>
+                {% elif info['loggedIn'] and info['admin'] %}
+                    <!-- Leave empty to disable applying for permit using an admin account -->
+                {% else %}
+                    <a href="{{ url_for('visitor') }}">Apply for Permit</a>
+                {% endif %}
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Campus Information</a>
+                <div class="dropdown-content" style="width: 260px;">
+                    <a href="{{ url_for('rules') }}"> Rules and Regulations</a>
+                    <a href="{{ url_for('paymentInfo') }}"> Payment Information</a>
+                </div>
+            </li>
+
+            {% if info['loggedIn'] and info['admin'] %}
+                <li><a href="{{ url_for('admin') }}">Admin</a></li>
+            {% elif info['loggedIn'] %}
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('about') }}">About</a>
+                    <a href="{{ url_for('faq') }}">FAQ</a>
+                    <a href="{{ url_for('contactus') }}">Contact Us</a>
+                </div>
+            </li>
+
+            {% if info['loggedIn'] == true %}
+                <li><a href="{{ url_for('out') }}">Log out</a>
+                <li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
